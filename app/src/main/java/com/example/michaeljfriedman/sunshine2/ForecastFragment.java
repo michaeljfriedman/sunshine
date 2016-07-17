@@ -1,5 +1,6 @@
 package com.example.michaeljfriedman.sunshine2;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -51,7 +53,7 @@ public class ForecastFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Dummy data
-        List<String> forecasts = new ArrayList<String>(Arrays.asList(new String[] {
+        final List<String> forecasts = new ArrayList<String>(Arrays.asList(new String[] {
                 "Mon 6/23 - Sunny - 31/17",
                 "Tue 6/24 - Foggy - 21/8",
                 "Wed 6/25 - Cloudy - 22/17",
@@ -73,6 +75,17 @@ public class ForecastFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         ListView listView = (ListView) rootView.findViewById(R.id.listview_forecast);
         listView.setAdapter(forecastAdapter);
+
+        // Set up click listeners for each item of the ListView
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String forecast = forecastAdapter.getItem(i);
+                Intent detailActivityIntent = new Intent(getActivity(), DetailActivity.class)
+                        .putExtra(Intent.EXTRA_TEXT, forecast);
+                startActivity(detailActivityIntent);
+            }
+        });
 
         return rootView;
     }
@@ -107,8 +120,7 @@ public class ForecastFragment extends Fragment {
 
         /**
          * Fetches the weather forecast using OpenWeatherMap API. Parameters for retrieving
-         * the weather can be found at:
-         * http://openweathermap.org/API#forecast
+         * the weather can be found at: http://openweathermap.org/API#forecast
          */
         @Override
         protected String[] doInBackground(String... params) {

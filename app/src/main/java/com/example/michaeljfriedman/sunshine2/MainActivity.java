@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Once the activity is started, the system will call this method to create a menu in the
-     * top bar. Here we create the overflow menu laid out in forecastfragment.xml
+     * top bar. Here we create the overflow menu laid out in main.xml
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,12 +43,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id) {
-            case R.id.action_settings:
-                // pull up settings menu
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (id == R.id.action_settings) {
+            // pull up settings menu
+            return true;
         }
+
+        return super.onOptionsItemSelected(item);
     }
 }
