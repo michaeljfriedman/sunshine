@@ -23,6 +23,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.michaeljfriedman.sunshine2.MainActivity" />
         </activity>
+        <activity android:name=".SettingsActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.michaeljfriedman.sunshine2.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
