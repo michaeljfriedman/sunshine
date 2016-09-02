@@ -2,15 +2,22 @@ package com.example.michaeljfriedman.sunshine2.data;
 
 import android.test.AndroidTestCase;
 
+/**
+ * Sample test class
+ */
 public class TestPractice extends AndroidTestCase {
-    /*
-        This gets run before every test.
+
+    /**
+     * This gets run before every test.
      */
     @Override
     protected void setUp() throws Exception {
         super.setUp();
     }
 
+    /**
+     * Sample test
+     */
     public void testThatDemonstratesAssertions() throws Throwable {
         int a = 5;
         int b = 3;
@@ -26,6 +33,9 @@ public class TestPractice extends AndroidTestCase {
         }
     }
 
+    /**
+     * This gets run after every test
+     */
     @Override
     protected void tearDown() throws Exception {
         super.tearDown();

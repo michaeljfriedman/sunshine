@@ -51,7 +51,7 @@ public class WeatherContract {
 
         public static final String COLUMN_CITY_NAME = "city_name";    // (String) city name
 
-        public static final String COLUMN_LOCATION_SETTING = "location_setting";    // (int) postal code location setting
+        public static final String COLUMN_LOCATION_SETTING = "location_setting";    // (String) postal code location setting
     }
 
     /**
