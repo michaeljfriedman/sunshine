@@ -172,7 +172,7 @@ public class TestDb extends AndroidTestCase {
         // Validate that the insertion worked
         assertTrue("Error: Failed to enter North Pole location into the database", locationRowId != -1);
 
-        // Create the weather entry, insert, and validate a successful insertion
+        // Create the weather entry, insert, and validate a su ccessful insertion
         ContentValues testValues = TestUtilities.createWeatherValues(locationRowId);
         long weatherRowId = db.insert(WeatherContract.WeatherEntry.TABLE_NAME, null, testValues);
         assertTrue("Error: Failed to enter the sample weather entry into the database", weatherRowId != -1);

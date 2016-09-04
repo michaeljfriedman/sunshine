@@ -117,7 +117,12 @@ public class ForecastFragment extends Fragment {
     }
 
 
+
     /**
+     * DEPRECATED
+     * Replaced by the separate FetchWeatherTask.java, which incorporates the
+     * SQLite database + ContentProvider
+     *
      * Background thread for fetching the weather
      */
     private class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
